@@ -5,7 +5,6 @@
     text-decoration: none;
     background: transparent;
     font-family: 'Poppins' , sans-serif;
-    
 }
 
 body {
@@ -13,5 +12,5 @@ body {
     color: white;
     overflow: hidden;
     overflow-y: scroll;
-
+    font-family: 'outfit';
 }

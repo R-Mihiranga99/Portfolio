@@ -3,7 +3,7 @@
     height: 5rem;
     margin: 0 auto;
     max-width: 75rem;
-    padding: 1rem 2rem;
+    padding: 2rem 0rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -17,7 +17,8 @@
     width: 190px;
     height: 120px;
     padding: 10px;
-    border-radius: 50%;
+    margin-right: 50px;
+    
 }
 
 .logo-img {
@@ -33,22 +34,29 @@
     cursor: pointer;
 }
 
-.desktopMenuListItem {
-    margin: 2rem;
-    cursor: pointer;
-    
+.desktopMenu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 70px;
+    font-size: 16px;
+    font-family: 'outfit';
 }
+
 
 .desktopMenuButton {
     background: linear-gradient(264deg, #DF8908 -5.09%, #B415FF 106.28%);
     color: white;
     border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     padding: 0 1rem;
     border-radius: 3rem;
 
+}
+
+.anchor-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .desktopMenuButton:hover {
@@ -66,7 +74,20 @@
 .desktopMenuListItem:hover {
     color: #dc00f0;
     padding-bottom: 0.5rem;
-    border-bottom: 3px solid #dc00f0;
     cursor: pointer;
     transition: 0.3s ease-in-out;
 }
+
+.desktopMenu img {
+    width: 50px;
+    object-fit: cover;
+    position: absolute;
+    bottom: 15px;
+    margin: 0 10px;
+}
+
+.anchor-link {
+    text-decoration: none;
+    color: white;
+}
+

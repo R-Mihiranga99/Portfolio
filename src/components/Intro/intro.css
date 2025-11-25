@@ -1,4 +1,4 @@
-#intro {
+#home {
     height: calc(100vh - 4rem);
     width: 100vw;
     max-width: 75rem;
@@ -79,6 +79,11 @@
     padding: 0.25rem 1rem;
     border: none;
     border-radius: 2rem;
+}
+
+.anchor-link-hireme {
+    text-decoration: none;
+    color: black;
 }
 
 .hireMe {
