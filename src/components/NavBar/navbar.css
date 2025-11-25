@@ -14,18 +14,18 @@
 }
 
 .logo {
-    width: 90px;
-    height: 95px;
-    padding: 20px;
+    width: 190px;
+    height: 120px;
+    padding: 10px;
     border-radius: 50%;
 }
 
 .logo-img {
     position: absolute;
-    bottom: 0;
+    bottom: 12px;
     z-index: -1;
-    width: 50px;
-    margin: 0 30px;
+    width: 100px;
+    margin: 0 80px;
 
 }
 
