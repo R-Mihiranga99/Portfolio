@@ -109,7 +109,7 @@ Portfolio/
 **Ravindu Mihiranga**
 
 * GitHub: [https://github.com/R-Mihiranga99](https://github.com/R-Mihiranga99)
-* LinkedIn: *(Add your LinkedIn profile link)*
+* LinkedIn: *https://www.linkedin.com/in/ravindu-mihiranga-845276247/*
 
 ---
 
