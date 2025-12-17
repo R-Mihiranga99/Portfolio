@@ -1,16 +1,117 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🌟 Personal Portfolio Website
 
-Currently, two official plugins are available:
+A modern and responsive portfolio website built with **React** and **Vite** to showcase my skills, projects, and professional profile.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 Overview
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This **Portfolio Website** is a full-responsive web application created to highlight my development skills and showcase my projects and experience. It is built using React and Vite for a fast and modern frontend build setup. The website includes sections such as About Me, Projects, Skills, and Contact. It is designed with a clean UI and ensures seamless navigation across devices.
 
-## Expanding the ESLint configuration
+This project reflects my ability to build professional web applications using modern frontend technologies.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠 Technologies Used
+
+* **React** – UI library for building components
+* **Vite** – Fast build tool for frontend projects
+* **JavaScript** – Application logic
+* **HTML5** – Markup
+* **CSS3** – Styling and responsive layouts
+
+---
+
+## ✨ Features
+
+* 📱 Fully responsive layout
+* 📌 About Me section
+* 🔍 Projects showcase with links
+* 💼 Skills overview
+* ✉️ Contact section
+* ⚡ Fast and optimized build using Vite
+
+---
+
+## 📁 Folder Structure
+
+```text
+Portfolio/
+├── public/
+│   └── index.html
+├── src/
+│   ├── assets/
+│   ├── components/
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── styles/
+├── .gitignore
+├── package.json
+├── vite.config.js
+├── README.md
+└── screenshots/
+```
+
+---
+
+## ⚙️ How to Run Locally
+
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/R-Mihiranga99/Portfolio.git
+   ```
+
+2. **Navigate into the folder**
+
+   ```bash
+   cd Portfolio
+   ```
+
+3. **Install dependencies**
+
+   ```bash
+   npm install
+   ```
+
+4. **Start the development server**
+
+   ```bash
+   npm run dev
+   ```
+
+5. Open your browser and go to the URL shown in the terminal (e.g., `localhost:5173`).
+
+---
+
+## 📌 What I Learned
+
+* Building component-based UI with **React**
+* Using **Vite** for modern and fast frontend workflows
+* Responsive design using CSS
+* Structuring a professional web portfolio
+* Deploying a full React project
+
+---
+
+## 🌱 Future Improvements
+
+* Add dark/light theme toggle
+* Add animations and transitions
+* Include downloadable resume link
+* Deploy using GitHub Pages / Netlify / Vercel
+
+---
+
+## 👤 Author
+
+**Ravindu Mihiranga**
+
+* GitHub: [https://github.com/R-Mihiranga99](https://github.com/R-Mihiranga99)
+* LinkedIn: *(Add your LinkedIn profile link)*
+
+---
+
+⭐ If you find this portfolio useful or interesting, feel free to **⭐ star this repository**.
+
