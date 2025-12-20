@@ -1,14 +1,16 @@
-.mywork {
+.mywork-section {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 80px;
-    margin: 80px 170px;
+  padding: 8rem 5%;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+  color: #fff;
 }
 
 .mywork-title {
     position: relative;
+    margin-top: -40px;
 }
 
 .mywork-title h1 {
@@ -19,47 +21,79 @@
 
 .mywork-title img {
     position: absolute;
-    bottom: 0;
-    right: 0;
-    z-index: -1;
+    bottom: -22px;
+    right: -55px;
 }
 
-.mywork-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 30px;
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  margin-top: 8rem;
 }
 
-.mywork-container img {
-    box-sizing: border-box;
-    width: 420px;
-    height: 280px;
-    transition: 0.3s;
-    cursor: pointer;
+.project-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-.mywork-container img:hover {
-    transform: scale(1.10);
-    border: 3px solid #ff00ff;
-    border-radius: 10px;
-    transition: 0.3s;
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
-.mywork-showmore {
-    display: flex;
-    gap: 15px;
-    border-radius: 50px;
-    border: 2px solid white;
-    padding: 30px 60px;
-    font-size: 22px;
-    font-weight: 500;
-    margin-bottom: 80px;
-    transition: 0.6s;
-    cursor: pointer;
+.project-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
 }
 
-.mywork-showmore:hover {
-    gap: 30px;
-    border-color: #ff00ff;
-    transition: 0.6s;
+.project-content {
+  padding: 2rem;
+}
+
+.project-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.8rem;
+  color: #fff;
+}
+
+.project-tech {
+  color: #667eea;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.project-link:hover {
+  color: #667eea;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .mywork-section {
+    padding: 5rem 5%;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
 }
