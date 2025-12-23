@@ -1,5 +1,6 @@
 import React from 'react';
 import './MyWork.css';
+import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
 import theme_pattern from '../../assets/theme_pattern.svg';
 
@@ -51,24 +52,67 @@ const MyWork = () => {
 
   return (
     <section id="portfolio" className="mywork-section">
-      <div className="mywork-title">
-                <h1>My Latest Work</h1>
-                <img src={theme_pattern} alt="" />
-            </div>
-      <div className="projects-grid">
+
+      {/* 🔹 Title animation */}
+      <motion.div
+        className="mywork-title"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        <h1>My Latest Work</h1>
+        <img src={theme_pattern} alt="" />
+      </motion.div>
+
+      {/* 🔹 Projects grid */}
+      <motion.div
+        className="projects-grid"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={{
+          hidden: {},
+          visible: {
+            transition: {
+              staggerChildren: 0.15
+            }
+          }
+        }}
+      >
         {projects.map((project) => (
-          <div key={project.id} className="project-card">
-            <img src={project.image} alt={project.title} className="project-image" />
+          <motion.div
+            key={project.id}
+            className="project-card"
+            variants={{
+              hidden: { opacity: 0, y: 40 },
+              visible: { opacity: 1, y: 0 }
+            }}
+            transition={{ duration: 0.5 }}
+            whileHover={{ y: -8, scale: 1.03 }}
+          >
+            <img
+              src={project.image}
+              alt={project.title}
+              className="project-image"
+            />
+
             <div className="project-content">
               <h3>{project.title}</h3>
               <p className="project-tech">{project.tech}</p>
-              <a href={project.link} className="project-link">
+              <a
+                href={project.link}
+                className="project-link"
+                target="_blank"
+                rel="noreferrer"
+              >
                 View Project <ExternalLink size={16} />
               </a>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
+
     </section>
   );
 };

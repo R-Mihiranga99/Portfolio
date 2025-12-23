@@ -1,6 +1,7 @@
-import React from 'react'
-import './services.css'
-import theme_pattern from '../../assets/theme_pattern.svg'
+import React from 'react';
+import './services.css';
+import { motion } from 'framer-motion';
+import theme_pattern from '../../assets/theme_pattern.svg';
 import { Code, Palette, Zap } from 'lucide-react';
 
 const Services = () => {
@@ -21,25 +22,59 @@ const Services = () => {
       desc: 'Optimizing websites for speed, SEO, and better user experience through code splitting and modern optimization techniques.' 
     }
   ];
+
   return (
     <section id="services" className="services-section">
-        <div className="services-title">
-            <h1>My Services</h1>
-            <img src= {theme_pattern} alt="" />
-        </div>
-        <div className="services-grid">
+
+      {/* 🔹 Title animation */}
+      <motion.div
+        className="services-title"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        <h1>My Services</h1>
+        <img src={theme_pattern} alt="" />
+      </motion.div>
+
+      {/* 🔹 Cards grid */}
+      <motion.div
+        className="services-grid"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={{
+          hidden: {},
+          visible: {
+            transition: {
+              staggerChildren: 0.15
+            }
+          }
+        }}
+      >
         {services.map((service, index) => (
-          <div key={index} className="service-card">
+          <motion.div
+            key={index}
+            className="service-card"
+            variants={{
+              hidden: { opacity: 0, y: 40 },
+              visible: { opacity: 1, y: 0 }
+            }}
+            transition={{ duration: 0.5 }}
+            whileHover={{ y: -8, scale: 1.03 }}
+          >
             <div className="service-icon">
               {service.icon}
             </div>
             <h3>{service.title}</h3>
             <p>{service.desc}</p>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
+
     </section>
-  )
-}
+  );
+};
 
 export default Services;

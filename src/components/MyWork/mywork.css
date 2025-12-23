@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: center;
   padding: 8rem 5%;
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+  background: linear-gradient(135deg, #0a0a0a 0%, #1d1d3e 100%);
   color: #fff;
 }
 
@@ -45,9 +45,23 @@
 }
 
 .project-card:hover {
-  transform: translateY(-10px);
+  transform: scale(1.08);
+  transition: transform 0.4s ease;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
+
+.project-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.7));
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.project-card:hover::after {
+  opacity: 1;
+}
+
 
 .project-image {
   width: 100%;

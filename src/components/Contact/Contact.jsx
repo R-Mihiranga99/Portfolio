@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Contact.css';
+import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import theme_pattern from '../../assets/theme_pattern.svg';
 
@@ -20,7 +21,6 @@ const Contact = () => {
   const onSubmit = async (event) => {
     event.preventDefault();
     const formDataToSend = new FormData(event.target);
-
     formDataToSend.append("access_key", "5ad99d75-6e4d-4f38-a61c-6b38026938aa");
 
     const object = Object.fromEntries(formDataToSend);
@@ -43,83 +43,116 @@ const Contact = () => {
 
   return (
     <section id="contact" className="contact-section">
-      <div className="contact-title">
-            <h1>Get in touch</h1>
-            <img src={theme_pattern} alt="" />
-        </div>
+
+      {/* 🔹 Title animation */}
+      <motion.div
+        className="contact-title"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        <h1>Get in touch</h1>
+        <img src={theme_pattern} alt="" />
+      </motion.div>
+
       <div className="contact-content">
-        <div className="contact-info">
+
+        {/* 🔹 Left info panel */}
+        <motion.div
+          className="contact-info"
+          initial={{ opacity: 0, x: -80 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+        >
           <h3>Let's talk</h3>
           <p>
-            I'm currently available to take on new projects, so feel free to send me a 
-            message about anything that you want me to work on. You can contact anytime.
+            I'm currently available to take on new projects, so feel free to send me a
+            message about anything that you want me to work on.
           </p>
+
           <div className="contact-items">
-            <div className="contact-item">
-              <div className="contact-icon">
-                <Mail size={24} />
-              </div>
-              <div className="contact-details">
-                <p>ravindumw99@gmail.com</p>
-              </div>
-            </div>
-            <div className="contact-item">
-              <div className="contact-icon">
-                <Phone size={24} />
-              </div>
-              <div className="contact-details">
-                <p>+94 77 65 81 847</p>
-              </div>
-            </div>
-            <div className="contact-item">
-              <div className="contact-icon">
-                <MapPin size={24} />
-              </div>
-              <div className="contact-details">
-                <p>Meemaduma, Baddegama, Galle.</p>
-              </div>
-            </div>
+            {[
+              { icon: <Mail size={24} />, text: 'ravindumw99@gmail.com' },
+              { icon: <Phone size={24} />, text: '+94 77 65 81 847' },
+              { icon: <MapPin size={24} />, text: 'Meemaduma, Baddegama, Galle.' }
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                className="contact-item"
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.15 }}
+                viewport={{ once: true }}
+              >
+                <div className="contact-icon">{item.icon}</div>
+                <div className="contact-details">
+                  <p>{item.text}</p>
+                </div>
+              </motion.div>
+            ))}
           </div>
-        </div>
-        <form onSubmit={onSubmit} className="contact-form">
+        </motion.div>
+
+        {/* 🔹 Right form panel */}
+        <motion.form
+          onSubmit={onSubmit}
+          className="contact-form"
+          initial={{ opacity: 0, x: 80 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+        >
           <div className="form-group">
-            <label htmlFor="name">Your Name</label>
-            <input 
-              type="text" 
-              id="name"
-              name="name" 
+            <label>Your Name</label>
+            <motion.input
+              type="text"
+              name="name"
               placeholder="Enter your name"
               value={formData.name}
               onChange={handleChange}
+              whileFocus={{ scale: 1.02 }}
               required
             />
           </div>
+
           <div className="form-group">
-            <label htmlFor="email">Your Email</label>
-            <input 
-              type="email" 
-              id="email"
-              name="email" 
+            <label>Your Email</label>
+            <motion.input
+              type="email"
+              name="email"
               placeholder="Enter your email"
               value={formData.email}
               onChange={handleChange}
+              whileFocus={{ scale: 1.02 }}
               required
             />
           </div>
+
           <div className="form-group">
-            <label htmlFor="message">Your Message</label>
-            <textarea 
-              id="message"
-              name="message" 
-              placeholder="Type your message here..."
+            <label>Your Message</label>
+            <motion.textarea
+              name="message"
               rows="8"
+              placeholder="Type your message here..."
               value={formData.message}
               onChange={handleChange}
+              whileFocus={{ scale: 1.02 }}
               required
-            ></textarea>
+            />
           </div>
-          <button type="submit" className="submit-btn">Send Message</button>
-        </form>
+
+          <motion.button
+            type="submit"
+            className="submit-btn"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Send Message
+          </motion.button>
+        </motion.form>
+
       </div>
     </section>
   );
