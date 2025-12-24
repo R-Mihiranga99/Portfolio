@@ -9,9 +9,9 @@ const About = () => {
     { name: 'HTML & CSS', level: 90 },
     { name: 'React JS', level: 85 },
     { name: 'JavaScript', level: 80 },
-    { name: 'Next JS', level: 75 },
-    { name: 'TypeScript', level: 70 },
-    { name: 'Node.js', level: 65 }
+    { name: 'Node.js', level: 65 },
+    { name: 'UI/UX Design', level: 85 },
+    { name: 'Git & GitHub', level: 80 },
   ];
 
   // Animation variants

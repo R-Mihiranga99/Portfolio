@@ -97,9 +97,6 @@
   transition: color 0.3s ease;
 }
 
-.project-link:hover {
-  color: #667eea;
-}
 
 /* Mobile Responsive */
 @media (max-width: 768px) {

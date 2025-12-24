@@ -2,51 +2,55 @@ import React from 'react';
 import './MyWork.css';
 import { ExternalLink } from 'lucide-react';
 import theme_pattern from '../../assets/theme_pattern.svg';
+import Portfolio from '../../assets/portfolio_thumbnail.png';
+import Post_office from '../../assets/post_office_thumbnail.png';
+import FilmoraX from '../../assets/filmorax_thumbnail.png';
+import Weather_App from '../../assets/weather_app_thumbnail.png';
 import { motion } from 'framer-motion';
 
 const MyWork = () => {
   const projects = [
     { 
       id: 1, 
-      title: 'E-Commerce Platform', 
-      tech: 'React, Node.js, MongoDB', 
-      image: 'https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=600&fit=crop',
-      link: '#'
+      title: 'Portfolio Website', 
+      tech: 'React Vite, JavaScript, HTML5/CSS3', 
+      image: Portfolio,
+      link: 'https://github.com/R-Mihiranga99/Portfolio.git'
     },
     { 
       id: 2, 
-      title: 'Task Management App', 
-      tech: 'Next.js, TypeScript, PostgreSQL', 
-      image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop',
-      link: '#'
+      title: 'Trust Post Logistics App', 
+      tech: 'React.js, Node.js, PostgreSQL', 
+      image: Post_office,
+      link: 'https://github.com/R-Mihiranga99/Trust-Post-Logistic-App.git'
     },
     { 
       id: 3, 
-      title: 'Social Media Dashboard', 
-      tech: 'React, Firebase, Tailwind', 
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop',
-      link: '#'
+      title: 'FilmoraX Movie Website', 
+      tech: 'React, Node.js, Express.js, PostgreSQL, TMDB API', 
+      image: FilmoraX,
+      link: 'https://github.com/R-Mihiranga99/FilmoraX_Movie_Website.git'
     },
     { 
       id: 4, 
-      title: 'Portfolio Website', 
-      tech: 'React, CSS3, Framer Motion', 
+      title: 'BookNest Online BookStore', 
+      tech: 'React, Node.js, Express.js, MongoDB', 
       image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600&fit=crop',
-      link: '#'
+      link: 'https://github.com/R-Mihiranga99/BookNest_Online_BookStore.git'
     },
     { 
       id: 5, 
       title: 'Weather App', 
-      tech: 'React, API Integration', 
-      image: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=800&h=600&fit=crop',
-      link: '#'
+      tech: 'JavaScript, HTML5/CSS3, OpenWeather API', 
+      image: Weather_App,
+      link: 'https://github.com/R-Mihiranga99/Weather_App.git'
     },
     { 
       id: 6, 
       title: 'Blog Platform', 
       tech: 'Next.js, MDX, Vercel', 
       image: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&h=600&fit=crop',
-      link: '#'
+      link: 'https://github.com/yourusername/blog-platform'
     }
   ];
 
@@ -109,6 +113,11 @@ const MyWork = () => {
         ease: "easeOut"
       }
     }
+  };
+
+  // Handle click to open in new tab
+  const handleProjectClick = (url) => {
+    window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -188,8 +197,8 @@ const MyWork = () => {
                 {project.tech}
               </motion.p>
               
-              <motion.a 
-                href={project.link} 
+              <motion.button
+                onClick={() => handleProjectClick(project.link)}
                 className="project-link"
                 variants={linkVariants}
                 whileHover="hover"
@@ -197,6 +206,13 @@ const MyWork = () => {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.4 }}
+                style={{ 
+                  background: 'none', 
+                  border: 'none', 
+                  cursor: 'pointer',
+                  padding: 0,
+                  font: 'inherit'
+                }}
               >
                 View Project 
                 <motion.span
@@ -206,10 +222,11 @@ const MyWork = () => {
                     repeat: Infinity,
                     ease: "easeInOut"
                   }}
+                  style={{ display: 'inline-flex', alignItems: 'center', marginLeft: '0.5rem' }}
                 >
                   <ExternalLink size={16} />
                 </motion.span>
-              </motion.a>
+              </motion.button>
             </motion.div>
           </motion.div>
         ))}
