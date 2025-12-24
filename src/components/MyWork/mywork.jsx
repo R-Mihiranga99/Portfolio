@@ -1,10 +1,11 @@
 import React from 'react';
 import './MyWork.css';
-import { ExternalLink } from 'lucide-react';
+import { Book, ExternalLink } from 'lucide-react';
 import theme_pattern from '../../assets/theme_pattern.svg';
 import Portfolio from '../../assets/portfolio_thumbnail.png';
 import Post_office from '../../assets/post_office_thumbnail.png';
 import FilmoraX from '../../assets/filmorax_thumbnail.png';
+import BookNest from '../../assets/booknest_thumbnail.png';
 import Weather_App from '../../assets/weather_app_thumbnail.png';
 import { motion } from 'framer-motion';
 
@@ -35,7 +36,7 @@ const MyWork = () => {
       id: 4, 
       title: 'BookNest Online BookStore', 
       tech: 'React, Node.js, Express.js, MongoDB', 
-      image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600&fit=crop',
+      image: BookNest,
       link: 'https://github.com/R-Mihiranga99/BookNest_Online_BookStore.git'
     },
     { 
