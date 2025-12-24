@@ -148,12 +148,14 @@ const MyWork = () => {
             key={project.id} 
             className="project-card"
             variants={cardVariants}
+            onClick={() => handleProjectClick(project.link)}
             whileHover={{ 
               y: -12,
               boxShadow: "0 25px 50px rgba(102, 126, 234, 0.4)",
               transition: { duration: 0.3 }
             }}
             whileTap={{ scale: 0.98 }}
+            style={{ cursor: 'pointer' }}
           >
             <div className="project-image-container">
               <motion.img 
@@ -198,7 +200,10 @@ const MyWork = () => {
               </motion.p>
               
               <motion.button
-                onClick={() => handleProjectClick(project.link)}
+                onClick={(e) => {
+                  e.stopPropagation(); 
+                  handleProjectClick(project.link);
+                }}
                 className="project-link"
                 variants={linkVariants}
                 whileHover="hover"
