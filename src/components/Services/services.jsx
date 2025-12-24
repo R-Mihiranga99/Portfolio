@@ -1,8 +1,8 @@
 import React from 'react';
 import './services.css';
-import { motion } from 'framer-motion';
 import theme_pattern from '../../assets/theme_pattern.svg';
 import { Code, Palette, Zap } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const Services = () => {
   const services = [
@@ -23,56 +23,127 @@ const Services = () => {
     }
   ];
 
+  // Animation variants
+  const titleVariants = {
+    hidden: { opacity: 0, y: -50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 50,
+      scale: 0.9
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const iconVariants = {
+    hidden: { scale: 0, rotate: -180 },
+    visible: {
+      scale: 1,
+      rotate: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+        type: "spring",
+        stiffness: 200
+      }
+    }
+  };
+
   return (
     <section id="services" className="services-section">
-
-      {/* 🔹 Title animation */}
-      <motion.div
+      <motion.div 
         className="services-title"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={titleVariants}
       >
         <h1>My Services</h1>
-        <img src={theme_pattern} alt="" />
+        <img 
+          src={theme_pattern} 
+          alt=""
+        />
       </motion.div>
 
-      {/* 🔹 Cards grid */}
-      <motion.div
+      <motion.div 
         className="services-grid"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true }}
-        variants={{
-          hidden: {},
-          visible: {
-            transition: {
-              staggerChildren: 0.15
-            }
-          }
-        }}
+        viewport={{ once: true, amount: 0.2 }}
+        variants={containerVariants}
       >
         {services.map((service, index) => (
-          <motion.div
-            key={index}
+          <motion.div 
+            key={index} 
             className="service-card"
-            variants={{
-              hidden: { opacity: 0, y: 40 },
-              visible: { opacity: 1, y: 0 }
+            variants={cardVariants}
+            whileHover={{ 
+              y: -15,
+              scale: 1.05,
+              boxShadow: "0 25px 50px rgba(102, 126, 234, 0.4)",
+              transition: { duration: 0.3 }
             }}
-            transition={{ duration: 0.5 }}
-            whileHover={{ y: -8, scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
           >
-            <div className="service-icon">
+            <motion.div 
+              className="service-icon"
+              variants={iconVariants}
+              whileHover={{ 
+                rotate: 360,
+                scale: 1.1,
+                transition: { duration: 0.6 }
+              }}
+            >
               {service.icon}
-            </div>
-            <h3>{service.title}</h3>
-            <p>{service.desc}</p>
+            </motion.div>
+            <motion.h3
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              {service.title}
+            </motion.h3>
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              {service.desc}
+            </motion.p>
           </motion.div>
         ))}
       </motion.div>
-
     </section>
   );
 };

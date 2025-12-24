@@ -1,8 +1,8 @@
 import React from 'react';
 import './MyWork.css';
-import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
 import theme_pattern from '../../assets/theme_pattern.svg';
+import { motion } from 'framer-motion';
 
 const MyWork = () => {
   const projects = [
@@ -50,69 +50,170 @@ const MyWork = () => {
     }
   ];
 
+  // Animation variants
+  const titleVariants = {
+    hidden: { opacity: 0, y: -50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 60,
+      scale: 0.95
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const imageVariants = {
+    hover: {
+      scale: 1.1,
+      transition: {
+        duration: 0.4,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const linkVariants = {
+    hover: {
+      x: 5,
+      transition: {
+        duration: 0.3,
+        ease: "easeOut"
+      }
+    }
+  };
+
   return (
     <section id="portfolio" className="mywork-section">
-
-      {/* 🔹 Title animation */}
-      <motion.div
+      <motion.div 
         className="mywork-title"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={titleVariants}
       >
         <h1>My Latest Work</h1>
-        <img src={theme_pattern} alt="" />
+        <img 
+          src={theme_pattern} 
+          alt=""
+        />
       </motion.div>
 
-      {/* 🔹 Projects grid */}
-      <motion.div
+      <motion.div 
         className="projects-grid"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true }}
-        variants={{
-          hidden: {},
-          visible: {
-            transition: {
-              staggerChildren: 0.15
-            }
-          }
-        }}
+        viewport={{ once: true, amount: 0.1 }}
+        variants={containerVariants}
       >
-        {projects.map((project) => (
-          <motion.div
-            key={project.id}
+        {projects.map((project, index) => (
+          <motion.div 
+            key={project.id} 
             className="project-card"
-            variants={{
-              hidden: { opacity: 0, y: 40 },
-              visible: { opacity: 1, y: 0 }
+            variants={cardVariants}
+            whileHover={{ 
+              y: -12,
+              boxShadow: "0 25px 50px rgba(102, 126, 234, 0.4)",
+              transition: { duration: 0.3 }
             }}
-            transition={{ duration: 0.5 }}
-            whileHover={{ y: -8, scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
           >
-            <img
-              src={project.image}
-              alt={project.title}
-              className="project-image"
-            />
-
-            <div className="project-content">
-              <h3>{project.title}</h3>
-              <p className="project-tech">{project.tech}</p>
-              <a
-                href={project.link}
-                className="project-link"
-                target="_blank"
-                rel="noreferrer"
-              >
-                View Project <ExternalLink size={16} />
-              </a>
+            <div className="project-image-container">
+              <motion.img 
+                src={project.image} 
+                alt={project.title} 
+                className="project-image"
+                variants={imageVariants}
+                whileHover="hover"
+              />
+              <motion.div 
+                className="project-overlay"
+                initial={{ opacity: 0 }}
+                whileHover={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
+              />
             </div>
+            
+            <motion.div 
+              className="project-content"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <motion.h3
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.2 }}
+              >
+                {project.title}
+              </motion.h3>
+              
+              <motion.p 
+                className="project-tech"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.3 }}
+              >
+                {project.tech}
+              </motion.p>
+              
+              <motion.a 
+                href={project.link} 
+                className="project-link"
+                variants={linkVariants}
+                whileHover="hover"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.4 }}
+              >
+                View Project 
+                <motion.span
+                  animate={{ x: [0, 3, 0] }}
+                  transition={{ 
+                    duration: 1.5, 
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                >
+                  <ExternalLink size={16} />
+                </motion.span>
+              </motion.a>
+            </motion.div>
           </motion.div>
         ))}
       </motion.div>
-
     </section>
   );
 };
