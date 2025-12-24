@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Contact.css';
+import '../Contact/Contact.css';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import theme_pattern from '../../assets/theme_pattern.svg';
 import { motion } from 'framer-motion';

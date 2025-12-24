@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './Navbar.css';
+import '../NavBar/navbar.css';
 import { Menu, X } from 'lucide-react';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import logo from '../../assets/logo.jpg';

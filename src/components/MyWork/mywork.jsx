@@ -1,5 +1,5 @@
 import React from 'react';
-import './MyWork.css';
+import '../MyWork/mywork.css';
 import { Book, ExternalLink } from 'lucide-react';
 import theme_pattern from '../../assets/theme_pattern.svg';
 import Portfolio from '../../assets/portfolio_thumbnail.png';

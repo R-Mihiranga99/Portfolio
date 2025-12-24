@@ -1,5 +1,5 @@
 import React from 'react';
-import './services.css';
+import '../Services/services.css';
 import theme_pattern from '../../assets/theme_pattern.svg';
 import { Code, Palette, Zap } from 'lucide-react';
 import { motion } from 'framer-motion';

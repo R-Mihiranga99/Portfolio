@@ -1,5 +1,5 @@
 import React from 'react';
-import './About.css';
+import '../About/About.css';
 import theme_pattern from '../../assets/theme_pattern.svg';
 import profile_img from '../../assets/about_profile.png';
 import { motion } from 'framer-motion';
