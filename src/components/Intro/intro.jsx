@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import '../Intro/intro.css';
 import { Mail, Download, Facebook, Instagram, Linkedin, Github } from 'lucide-react';
 import Typed from 'typed.js';
-import Profile_Bg from '../../assets/Profile-Bg.jpeg';
+import Profile_Bg from '../../assets/profile-bg.jpeg';
 import { motion } from 'framer-motion';
 
 const Intro = () => {
