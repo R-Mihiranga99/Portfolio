@@ -243,7 +243,7 @@ const Contact = () => {
                 <MapPin size={24} />
               </motion.div>
               <div className="contact-details">
-                <p>Meemaduma, Baddegama, Galle.</p>
+                <p>Baddegama, Galle.</p>
               </div>
             </motion.div>
           </motion.div>
