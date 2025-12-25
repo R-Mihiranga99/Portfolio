@@ -2,7 +2,7 @@ import React from 'react';
 import '../MyWork/mywork.css';
 import { Book, ExternalLink } from 'lucide-react';
 import theme_pattern from '../../assets/theme_pattern.svg';
-import Portfolio from '../../assets/portfolio_thumbnail.png';
+import Portfolio from '../../assets/portfolio-thumbnail.png';
 import Post_office from '../../assets/post_office_thumbnail.png';
 import FilmoraX from '../../assets/filmorax_thumbnail.png';
 import BookNest from '../../assets/booknest_thumbnail.png';
